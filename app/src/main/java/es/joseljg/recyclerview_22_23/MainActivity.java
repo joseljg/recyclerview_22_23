@@ -1,8 +1,11 @@
 package es.joseljg.recyclerview_22_23;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import java.util.ArrayList;
@@ -35,6 +38,14 @@ public class MainActivity extends AppCompatActivity {
         //-----------------------------------------------------------------
         adaptadorProductos = new ListaProductosAdapter(this,productos);
         rv_productos.setAdapter(adaptadorProductos);
+        int orientation = getResources().getConfiguration().orientation;
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            // In landscape
+            rv_productos.setLayoutManager(new GridLayoutManager(this,2));
+        } else {
+            // In portrait
+            rv_productos.setLayoutManager(new LinearLayoutManager(this));
+        }
 
     }
 }
