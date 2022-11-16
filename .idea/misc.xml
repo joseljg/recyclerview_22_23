@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/workspace_android_22_23/recyclerview_22_23/app/src/main/res/layout/activity_detalles_producto.xml" value="0.25" />
         <entry key="..\:/workspace_android_22_23/recyclerview_22_23/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/workspace_android_22_23/recyclerview_22_23/app/src/main/res/layout/detalles_producto.xml" value="0.4" />
-        <entry key="..\:/workspace_android_22_23/recyclerview_22_23/app/src/main/res/layout/item_producto.xml" value="0.4" />
+        <entry key="..\:/workspace_android_22_23/recyclerview_22_23/app/src/main/res/layout/item_producto.xml" value="0.25" />
       </map>
     </option>
   </component>

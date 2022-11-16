@@ -1,7 +1,9 @@
 package es.joseljg.recyclerview_22_23;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +11,7 @@ import android.content.res.Configuration;
 import android.os.Bundle;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import es.joseljg.recyclerview_22_23.clases.Producto;
 
@@ -46,6 +49,44 @@ public class MainActivity extends AppCompatActivity {
             // In portrait
             rv_productos.setLayoutManager(new LinearLayoutManager(this));
         }
+//----------------------------------------------------------------------------------------------
+        ItemTouchHelper helper = new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT |
+                ItemTouchHelper.DOWN | ItemTouchHelper.UP, ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                int from = viewHolder.getAdapterPosition();
+                int to = target.getAdapterPosition();
+                Collections.swap(productos, from, to);
+                adaptadorProductos.notifyItemMoved(from, to);
+                return true;
+            }
 
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                if(direction == ItemTouchHelper.LEFT)
+                {
+                    // Ciudad c = ciudades.get(viewHolder.getAdapterPosition());
+                    // CiudadController.borrarCiudad(c);
+                    productos.remove(viewHolder.getAdapterPosition());
+                    adaptadorProductos.notifyItemRemoved(viewHolder.getAdapterPosition());
+                }
+                if(direction == ItemTouchHelper.RIGHT)
+                {
+                    productos.remove(viewHolder.getAdapterPosition());
+                    adaptadorProductos.notifyItemRemoved(viewHolder.getAdapterPosition());
+                }
+                if(direction == ItemTouchHelper.UP)
+                {
+                    //estudiantes.remove(viewHolder.getAdapterPosition());
+                    //adaptadorEstudiantes.notifyItemRemoved(viewHolder.getAdapterPosition());
+                }
+                if(direction == ItemTouchHelper.DOWN)
+                {
+                    //estudiantes.remove(viewHolder.getAdapterPosition());
+                    //adaptadorEstudiantes.notifyItemRemoved(viewHolder.getAdapterPosition());
+                }
+            }
+        });
+        helper.attachToRecyclerView(rv_productos);
     }
 }

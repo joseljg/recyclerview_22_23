@@ -1,8 +1,9 @@
 package es.joseljg.recyclerview_22_23.clases;
 
+import java.io.Serializable;
 import java.util.Objects;
 
-public class Producto {
+public class Producto implements Serializable {
     // atributos
     private String nombre;
     private double precio;

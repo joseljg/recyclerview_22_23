@@ -3,10 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".DetallesProductoActivity">
 
     <TextView
-        android:id="@+id/txt_detalles_nombre2"
+        android:id="@+id/txt_detalles_cantidad"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
@@ -18,7 +19,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_detalles_nombre" />
 
     <TextView
-        android:id="@+id/txt_detalles_nombre3"
+        android:id="@+id/txt_detalles_precio"
         android:layout_width="379dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="35dp"
@@ -27,14 +28,15 @@
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_detalles_nombre2" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_detalles_cantidad" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.212"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/fruta" />
@@ -62,6 +64,17 @@
         android:layout_marginEnd="27dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_detalles_nombre3"
+        app:layout_constraintTop_toBottomOf="@+id/txt_detalles_precio"
         app:srcCompat="@drawable/descripcion" />
+
+    <Button
+        android:id="@+id/bt_detalles_cerrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="57dp"
+        android:layout_marginEnd="68dp"
+        android:text="Volver"
+        android:onClick="volver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
